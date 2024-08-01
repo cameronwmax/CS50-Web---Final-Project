@@ -1,0 +1,120 @@
+.gradient-background {
+    background: linear-gradient(300deg, rgba(255, 255, 255, 0.719), rgb(61, 61, 61), black);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+body {
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.nav-link {
+    color: black;
+}
+
+.header-logo {
+    margin-left: 10px;
+}
+
+.form-control {
+  width: 600px;
+}
+
+.center-block {
+  display: block;
+  margin: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.margin-btm-20 {
+  margin-bottom: 20%;
+}
+
+.margin-btm-10px {
+  margin-bottom: 10px;
+}
+
+.margin-top-10 {
+  margin-top: 10%;
+}
+
+#create-list-link {
+  color: black;
+  text-decoration: none;
+}
+
+#log-in-link {
+  color: white;
+  text-decoration: none;
+}
+
+.text-outline {
+  color: white;
+	text-shadow: -1px 1px 2px #000,
+				  1px 2px 6px #000,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;
+}
+
+.new-task-content {
+  width: 100%;
+  height: 200px;
+}
+
+
+.textarea-content {
+  width: 600px;
+  height: 200px;
+}
+
+.margin-btn {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+hr {
+  color: black;
+}
+
+#timestamp-text {
+  opacity: 50%;
+}
+
+#delete-task {
+  margin-left: 85%;
+  display: inline;
+}
+
+#edit-task {
+  display: inline;
+  opacity: 50%;
+}
+
+.task-item {
+  width: 500px;
+}
+
+#hide-btn {
+  display: none;
+}
+
+.edit-div {
+  width: 400px;
+  height: 200px;
+}

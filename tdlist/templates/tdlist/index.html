@@ -1,0 +1,23 @@
+{% extends "tdlist/base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="static/img/checklist-art.png" class="d-block mx-lg-auto img-fluid" alt="checklist-art" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="text-outline display-5 fw-bold text-body-emphasis lh-1 mb-3">Task Tracker</h1>
+          <p class="lead">Nice and sleek way to keep track of your tasks, notes, and anything else!</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            {% if user.is_authenticated %}
+              <a href="{% url 'my_list' %}" id="create-list-link"><button type="button" class="btn btn-light btn-lg px-4 me-md-2">View/Add Tasks</button></a>
+            {% else %}
+              <a href="{% url 'register' %}" id="log-in-link"><button type="button" class="btn btn-dark btn-lg px-4 me-md-2">Register/Log In</button></a>
+            {% endif %}
+            </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

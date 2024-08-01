@@ -1,0 +1,54 @@
+{% extends "tdlist/base.html" %}
+{% block title %}My Posts{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-outline">Your Tasks ({{ amount }})</h1>
+        <hr>
+        {% if amount == 0 %}
+            <h1 class="text-outline">You have no tasks right now!</h1>
+            <div id="add-btn"> 
+                <button type="button" onclick="addTask()" class="btn btn-dark margin-btm-10px text-outline center-block">Add task</button> 
+            </div>
+            <form action="{% url 'create_list' %}" method="POST" id="new-task-form">
+                {% csrf_token %}
+                <div id="new-task-div">
+
+                </div>
+            </form>
+        {% else %} 
+            <div id="add-btn"> 
+                <button type="button" onclick="addTask()" class="btn btn-dark margin-btm-10px text-outline center-block">Add task</button> 
+            </div>
+            <form action="{% url 'create_list' %}" method="POST" id="new-task-form">
+                {% csrf_token %}
+                <div id="new-task-div">
+
+                </div>
+            </form>
+            <ul class="list-group list-group-flush margin-btm-20 center-block">
+                {% for list in all_lists %} 
+                    <li class="list-group-item margin-btm-10px center-block task-item">
+                        <h3 class="text-outline" id="task-content">{{ list.list_content }}</h3>
+                        <br>
+                        <small id="timestamp-text">{{ list.date_created }}</small>
+                        <button type="submit" onclick="editTask({{ list.id }})" class="btn btn-sm btn-light" id="edit-task">Edit</button>
+                        <form action="{% url 'edit_task' list_id=list.id %}" method="POST" id="edit-task-form">
+                            {% csrf_token %}
+                            <div id="edit-task-{{ list.id }}">
+                                
+                            </div>
+                        </form>
+                        <form action="{% url 'delete_list' list_id=list.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" onclick="deleteTask()" class="btn btn-sm btn-light" id="delete-task">Delete</button>   
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="submit" onclick="deleteAllPrompt()" class="btn btn-dark text-outline">Delete All</button>
+            <form action="{% url 'delete_all' %}">
+                <button type="submit" onclick="deleteAll()" class="btn btn-dark text-outline" id="hide-btn"></button>
+            </form>
+            {% endif %}
+    </div>
+{% endblock %}
